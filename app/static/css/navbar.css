@@ -1,7 +1,7 @@
 .header_logo{
     font-family: 'Satisfy', cursive;
     font-size: xx-large;
-    color:black;
+    color:orange !important;
     margin-right:2rem;
 }
 #home, #about, #contacts {

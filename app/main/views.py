@@ -10,3 +10,17 @@ def index():
     title = "Pitch"
 
     return render_template('index.html', title=title)
+
+@main.route('/login.html')
+def login():
+    '''
+    View login page function that returns the login page and its data
+    '''
+    return render_template('login.html')
+
+@main.route('/signup')
+def signup():
+    '''
+    View signup page function that returns the sign up page and its data
+    ''' 
+    return render_template('signup.html')
