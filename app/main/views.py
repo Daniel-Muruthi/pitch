@@ -24,3 +24,10 @@ def signup():
     View signup page function that returns the sign up page and its data
     ''' 
     return render_template('signup.html')
+
+@main.route('/userpage.html')
+def userpage():
+    '''
+    View userpage page function that returns the userpage page and its data
+    ''' 
+    return render_template('userpage.html')

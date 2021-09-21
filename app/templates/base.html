@@ -18,9 +18,12 @@
 </head>
 <body>
     
+    {% if url_for("main.userpage") %}
+    {% else %}
     {% block navbar %}
     {% include 'navbar.html' %}
     {% endblock %}
+    {% endif %}
     {% block content%}
     
     

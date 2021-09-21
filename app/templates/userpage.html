@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+        <link rel="stylesheet"  href="{{ url_for('static', filename='../static/css/userpage.css') }}">
+    </head>
+    <body>
+        <div class="nav navbar-default navbar-static-top" role="navigation">
+            <div class="container-fluid" style="border:1px solid black;">
+                <div class="nav  navbar-collapse">
+                    <a href="/" class="header_logo navbar-brand mx-3 mt-0 d-inline">Pitch</a>
+                    <ul class="nav navbar navbar-nav d-inline">
+                        <li id="home" class=" mx-3 d-inline">
+                            <a href="index.html">Home</a>
+                        </li>
+                        <li id="about" class=" mx-3 d-inline">
+                            <a href="#">About</a>
+                        </li>
+                        <li id="contacts" class=" mx-3 d-inline">
+                            <a href="#">Contacts</a>
+                        </li>
+                    </ul>
+                    <div class="nav navbar-right d-inline" style="display:flex; margin-left:auto;">
+                        <h3 class="d-inline">{{ username }} </h3>
+                        <img src="../static/images/profile.png" alt="user ppic" height="50px" width="50px" class="d-inline">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+
