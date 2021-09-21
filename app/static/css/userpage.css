@@ -27,3 +27,8 @@ body{
 .signup, .login {
     margin-right:1rem;
 }
+.quote-text, .startquote, .endquote{
+    font-family: 'Satisfy', cursive;
+    font-size: xx-large;
+    color:orange !important; 
+}
