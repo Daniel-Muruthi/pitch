@@ -1,6 +1,6 @@
 from flask import render_template, request, redirect, url_for
 from . import main
-
+from flask_login import login_required
 
 @main.route('/index.html')
 def index():
@@ -25,7 +25,8 @@ def signup():
     ''' 
     return render_template('signup.html')
 
-@main.route('/userpage.html')
+@main.route('/userpage.html', methods = ['GET', 'POST'])
+@login_required
 def userpage():
     '''
     View userpage page function that returns the userpage page and its data
