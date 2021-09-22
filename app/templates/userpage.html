@@ -12,7 +12,7 @@
     </head>
     <body>
         <div class="nav navbar-default navbar-static-top" role="navigation">
-            <div class="container-fluid" style="border:1px solid black;">
+            <div class="container-fluid" style="border:1px solid rgb(231, 231, 231);">
                 <div class="nav  navbar-collapse">
                     <a href="/" class="header_logo navbar-brand mx-3 mt-0 d-inline">Pitch</a>
                     <ul class="nav navbar navbar-nav d-inline">
@@ -27,7 +27,7 @@
                         </li>
                     </ul>
                     <div class="nav navbar-right d-inline" style="display:flex; margin-left:auto;">
-                        <h3 class="d-inline">{{ username }} </h3>
+                        <h4 class="d-inline">User {{ username }} </h4>
                         <img src="../static/images/profile.png" alt="user ppic" height="50px" width="50px" class="d-inline">
                     </div>
                 </div>
@@ -36,7 +36,7 @@
         <!-- quote body starts here -->
         <div class="container-fluid">
             <div class="row col-sm-12 col-md-12 col-lg-12 my-3 mr-3">
-                <div class="col-sm-4 col-md-4 col-lg-4 card">
+                <div class="col-sm-3 col-md-3 col-lg-3 card">
                     <blockquote class="quote-body">
                         <p class="startquote d-3">
                             "
@@ -50,11 +50,11 @@
                         <hr>
                         <div class="blog-post-actions d-block">
                             <p class="blog-post-bottom text-left d-inline">
-                                {{ author }}jwkj
+                                Author: {{ author }}
                             </p>
                             <p class="blog-post-bottom text-right d-inline" style="float:right;">
                                 <button class="btn btn-success">
-                                    <span class="badge quote-badge">33{{ likes }}</span>🧡
+                                    <span class="badge quote-badge">0 {{ likes }}</span>🧡
                                 </button> 
                             </p>
                         </div>

@@ -29,6 +29,6 @@ body{
 }
 .quote-text, .startquote, .endquote{
     font-family: 'Satisfy', cursive;
-    font-size: xx-large;
+    font-size: x-large;
     color:orange !important; 
 }
