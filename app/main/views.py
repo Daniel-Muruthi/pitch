@@ -11,12 +11,12 @@ def index():
 
     return render_template('index.html', title=title)
 
-@main.route('/login.html')
-def login():
-    '''
-    View login page function that returns the login page and its data
-    '''
-    return render_template('login.html')
+# @main.route('/login.html')
+# def login():
+#     '''
+#     View login page function that returns the login page and its data
+#     '''
+#     return render_template('login.html')
 
 @main.route('/signup.html')
 def signup():
