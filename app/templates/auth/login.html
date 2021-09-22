@@ -19,19 +19,7 @@
                         <h1 id="pitchheader">Pitch</h1>
                         <h2>Log In</h2>
                     </header>
-                    <form>
-                        <div class="login-email field email-field my-2">
-                            <label>Email Address</label>
-                            <input type="email" name="email" placeholder="enter your email" class="form-control">
-                        </div>
-                        <div class="login-password field my-2">
-                            <label>Password</label>
-                            <input type="password" name="password" password="password" placeholder="enter your password" class="form-control">
-                        </div>
-                        <div>
-                            <input type="submit" value="submit" class="btn btn-success my-2">
-                        </div>
-                    </form>
+                    {{ wtf.quick_form(login_form) }}
                 </div>
                 <div class="col-sm-2">
                     <div style="border: 1px solid black; height:100%; width:1px; background-color: black;" class="mx-auto"></div>

@@ -1,69 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
-        <link rel="stylesheet"  href="{{ url_for('static', filename='../static/css/userpage.css') }}">
-    </head>
-    <body>
-        <div class="nav navbar-default navbar-static-top" role="navigation">
-            <div class="container-fluid" style="border:1px solid rgb(231, 231, 231);">
-                <div class="nav  navbar-collapse">
-                    <a href="/" class="header_logo navbar-brand mx-3 mt-0 d-inline">Pitch</a>
-                    <ul class="nav navbar navbar-nav d-inline">
-                        <li id="home" class=" mx-3 d-inline">
-                            <a href="index.html">Home</a>
-                        </li>
-                        <li id="about" class=" mx-3 d-inline">
-                            <a href="#">About</a>
-                        </li>
-                        <li id="contacts" class=" mx-3 d-inline">
-                            <a href="#">Contacts</a>
-                        </li>
-                    </ul>
-                    <div class="nav navbar-right d-inline" style="display:flex; margin-left:auto;">
-                        
-                        <h4 class="d-inline">User {{ username }} </h4>
-                        <img src="../static/images/profile.png" alt="user ppic" height="50px" width="50px" class="d-inline">
+
+    {% extends 'base.html' %}
+    {% block head %}
+    <!-- css link -->
+    {% block styles %}
+    <!--bootstrap link-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    {{ super() }}
+    <link rel="stylesheet"  href="{{ url_for('static', filename='../static/css/userpage.css') }}">
+    {% endblock %}
+    <title>{{ title }}</title>
+    {% endblock %}
+    
+    {% block content %}
+    <!-- quote body starts here -->
+    <div class="container-fluid">
+        <div class="row col-sm-12 col-md-12 col-lg-12 my-3 mr-3">
+            <div class="col-sm-3 col-md-3 col-lg-3 card">
+                <blockquote class="quote-body card">
+                    <p class="startquote d-3">
+                        "
+                    </p>
+                    <p class="quote-text">
+                        {{ quote }}knekfneknvfi
+                    </p>
+                    <p class="endquote d-3">
+                        "
+                    </p>
+                    <hr>
+                    <div class="blog-post-actions d-block">
+                        <p class="blog-post-bottom text-left d-inline">
+                            Author: {{ author }}
+                        </p>
+                        <p class="blog-post-bottom text-right d-inline" style="float:right;">
+                            <button class="btn btn-success">
+                                <span class="badge quote-badge">0 {{ likes }}</span> 🧡
+                            </button> 
+                        </p>
                     </div>
-                </div>
+                </blockquote>
             </div>
         </div>
-        <!-- quote body starts here -->
-        <div class="container-fluid">
-            <div class="row col-sm-12 col-md-12 col-lg-12 my-3 mr-3">
-                <div class="col-sm-3 col-md-3 col-lg-3 card">
-                    <blockquote class="quote-body">
-                        <p class="startquote d-3">
-                            "
-                        </p>
-                        <p class="quote-text">
-                            {{ quote }}knekfneknvfi
-                        </p>
-                        <p class="endquote d-3">
-                            "
-                        </p>
-                        <hr>
-                        <div class="blog-post-actions d-block">
-                            <p class="blog-post-bottom text-left d-inline">
-                                Author: {{ author }}
-                            </p>
-                            <p class="blog-post-bottom text-right d-inline" style="float:right;">
-                                <button class="btn btn-success">
-                                    <span class="badge quote-badge">0 {{ likes }}</span>🧡
-                                </button> 
-                            </p>
-                        </div>
-                    </blockquote>
-                </div>
-            </div>
-        </div>
-    </body>
-</html>
+    </div>
+    {% endblock %}
 
 

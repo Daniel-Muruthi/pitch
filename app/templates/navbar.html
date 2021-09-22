@@ -27,6 +27,13 @@
                     </li>
                 </ul>
                 <div class="navbar navbar-nav navbar-right signlog d-inline">
+                    {% if current_user.is_authenticated %}
+                    <h4 class="d-inline">{{ current_user.username }} </h4>
+                    <img src="../static/images/profile.png" alt="user ppic" height="50px" width="50px" class="d-inline">
+                    <div class="my-auto mx-3 signout d-inline">
+                        <a href="{{url_for('auth.logout')}}" class="btn btn-primary ">Sign out</a>
+                    </div>
+                    {% else %}
                     <div class="my-auto mx-3 signup d-inline">
                         <a href="{{url_for('auth.signup')}}" class="btn btn-success ">Sign Up</a>
                     </div>
@@ -35,6 +42,7 @@
                             Log In
                         </a>
                     </div>
+                    {% endif %}
                 </div>
             </div>
         </div>

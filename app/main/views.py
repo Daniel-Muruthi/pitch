@@ -13,7 +13,7 @@ def index():
 
 
 
-@main.route('/userpage.html', methods = ['GET', 'POST'])
+@main.route('/userpage', methods = ['GET', 'POST'])
 @login_required
 def userpage():
     '''
