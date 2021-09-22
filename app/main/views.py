@@ -2,7 +2,7 @@ from flask import render_template, request, redirect, url_for
 from . import main
 from flask_login import login_required
 
-@main.route('/index.html')
+@main.route('/')
 def index():
     '''
     View root page function that returns the index page and its data
@@ -11,19 +11,7 @@ def index():
 
     return render_template('index.html', title=title)
 
-# @main.route('/login.html')
-# def login():
-#     '''
-#     View login page function that returns the login page and its data
-#     '''
-#     return render_template('login.html')
 
-@main.route('/signup.html')
-def signup():
-    '''
-    View signup page function that returns the sign up page and its data
-    ''' 
-    return render_template('signup.html')
 
 @main.route('/userpage.html', methods = ['GET', 'POST'])
 @login_required
