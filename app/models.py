@@ -2,6 +2,7 @@ from . import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from . import login_manager
+from datetime import datetime
 
 #callback function to retrieve a user when a unique identifier is passed 
 @login_manager.user_loader
@@ -14,6 +15,8 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(255), index = True)
     email = db.Column(db.String(255), unique = True, index = True)
     passcode = db.Column(db.String(255))
+
+    minutepitches = db.relationship('NewPitch', backref = 'user', lazy = 'dynamic')
 
     @property
     def password(self):
@@ -41,10 +44,18 @@ class NewPitch(db.Model):
     __tablename__ = "minutepitches"
 
     id = db.Column(db.Integer, primary_key = True)
+    pitchtitle = db.Column(db.String(255))
     mypitch = db.Column(db.String)
+    postedat = db.Column(db.DateTime, default=datetime.utcnow)
     author = db.Column(db.String(255))
-    postedby = db.Column(db.String(255))
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
 
-    def __repr__(self):
-        return f'User {self.mypitch}'
+    def save_minutepitches(self):
+        db.session.add(self)
+        db.session.commit()
+
+    @classmethod
+    def get_minutepitches(cls, id):
+        pitches = NewPitch.query.filter_by(pitch_id=id).all()
+        return pitches
 

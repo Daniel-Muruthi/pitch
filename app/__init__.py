@@ -3,6 +3,8 @@ from flask_bootstrap import Bootstrap
 from flask import Flask
 from config import config_options
 from flask_login import LoginManager
+from flask_mail import Mail
+from flask_simplemde import SimpleMDE
 
 
 login_manager = LoginManager()
@@ -11,6 +13,8 @@ login_manager.login_view = 'auth.login'
 
 bootstrap = Bootstrap()
 db = SQLAlchemy()
+mail = Mail()
+simple = SimpleMDE()
 
 def create_app(config_name):
     # Initializing application
@@ -27,6 +31,12 @@ def create_app(config_name):
 
     # Initializing login manager
     login_manager.init_app(app)
+
+    # Initializing mail
+    mail.init_app(app)
+
+    #initializing simple review editor
+    simple.init_app(app)
 
     # Registering the blueprint
     from .main import main as main_blueprint

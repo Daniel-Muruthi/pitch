@@ -1,6 +1,9 @@
+from app.models import NewPitch
 from flask import render_template, request, redirect, url_for
 from . import main
-from flask_login import login_required
+from flask_login import login_required, current_user
+from .forms import PitchForm
+from .. import db
 
 @main.route('/')
 def index():
@@ -19,4 +22,35 @@ def userpage():
     '''
     View userpage page function that returns the userpage page and its data
     ''' 
-    return render_template('userpage.html')
+    form = PitchForm()
+    if form.validate_on_submit():
+
+
+        uppitch = NewPitch( title = form.pitchtitle.data, pitch = form.pitchtitle.data, category = form.category.data, author = form.author.data)
+
+        db.session.add(uppitch)
+        db.session.commit()
+
+        return redirect(url_for('main.index'))
+
+    return render_template('userpage.html', pitch_form = form)
+
+
+@main.route('/createpitch', methods = ['GET', 'POST'])
+@login_required
+def createpitch():
+    '''
+    View userpage page function that returns the userpage page and its data
+    ''' 
+    form = PitchForm()
+    if form.validate_on_submit():
+
+
+        uppitch = NewPitch( title = form.pitchtitle.data, pitch = form.pitchtitle.data, category = form.category.data, author = form.author.data)
+
+        db.session.add(uppitch)
+        db.session.commit()
+
+        return redirect(url_for('main.index'))
+
+    return render_template('createpitch.html', pitch_form = form)
