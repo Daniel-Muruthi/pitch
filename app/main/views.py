@@ -1,9 +1,10 @@
 from app.models import NewPitch
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect, url_for, abort
 from . import main
 from flask_login import login_required, current_user
 from .forms import PitchForm
 from .. import db
+import markdown2
 
 @main.route('/')
 def index():
@@ -22,18 +23,12 @@ def userpage():
     '''
     View userpage page function that returns the userpage page and its data
     ''' 
-    form = PitchForm()
-    if form.validate_on_submit():
+    pitch = NewPitch.query.get(id)
+    if pitch is None:
+        abort(404)
+    format_pitch = markdown2.markdown(pitch.new_pitch, extras=["code-friendly", "fenced-code-blocks"])
 
-
-        uppitch = NewPitch( title = form.pitchtitle.data, pitch = form.pitchtitle.data, category = form.category.data, author = form.author.data)
-
-        db.session.add(uppitch)
-        db.session.commit()
-
-        return redirect(url_for('main.index'))
-
-    return render_template('userpage.html', pitch_form = form)
+    return render_template('userpage.html', pitch = pitch , format_pitch = format_pitch)
 
 
 @main.route('/createpitch', methods = ['GET', 'POST'])
