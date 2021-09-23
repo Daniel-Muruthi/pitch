@@ -1,6 +1,8 @@
 
     {% extends 'base.html' %}
     {% import 'bootstrap/wtf.html' as wtf %}
+    {% import 'macros.html' as macro %}
+
     {% block head %}
     <!-- css link -->
     {% block styles %}
@@ -16,9 +18,7 @@
     <!-- quote body starts here -->
     <div class="container-fluid">
         <div class="row col-sm-12 col-md-12 col-lg-12 my-3 mr-3">
-            <div class="col-sm-3 col-md-3 col-lg-3 card">
- 
-            </div>
+            {{macro.displayPitches(pitches_body)}}
         </div>
     </div>
     {% endblock %}

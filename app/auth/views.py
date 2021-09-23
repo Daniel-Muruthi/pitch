@@ -32,7 +32,6 @@ def signup():
 
         return redirect(url_for('auth.login'))
 
-        title = "New Account"
     return render_template('auth/signup.html', registration_form = form)
 
 @auth.route('/logout')

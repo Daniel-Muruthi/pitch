@@ -46,8 +46,9 @@ class NewPitch(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     pitchtitle = db.Column(db.String(255))
     mypitch = db.Column(db.String)
-    postedat = db.Column(db.DateTime, default=datetime.utcnow)
+    postdate = db.Column(db.DateTime, default=datetime.utcnow)
     author = db.Column(db.String(255))
+    category = db.Column(db.String(255))
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
 
     def save_minutepitches(self):

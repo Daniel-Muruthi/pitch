@@ -23,18 +23,19 @@ def userpage():
     '''
     View userpage page function that returns the userpage page and its data
     ''' 
-    form = PitchForm()
-    if form.validate_on_submit():
+    pitches_body=NewPitch.query.all()
+    # form = PitchForm()
+    # if form.validate_on_submit():
 
 
-        uppitch = NewPitch( title = form.pitchtitle.data, pitch = form.pitchtitle.data, category = form.category.data, author = form.author.data)
+    #     uppitch = NewPitch( title = form.pitchtitle.data, pitch = form.pitchtitle.data, category = form.category.data, author = form.author.data)
 
-        db.session.add(uppitch)
-        db.session.commit()
+    #     db.session.add(uppitch)
+    #     db.session.commit()
 
-        return redirect(url_for('main.index'))
+    #     return redirect(url_for('main.index'))
 
-    return render_template('userpage.html', pitch_form = form)
+    return render_template('userpage.html', pitches_body = pitches_body)
 
 
 @main.route('/createpitch', methods = ['GET', 'POST'])
@@ -47,11 +48,11 @@ def createpitch():
     if form.validate_on_submit():
 
 
-        uppitch = NewPitch( title = form.pitchtitle.data, pitch = form.pitchtitle.data, category = form.category.data, author = form.author.data)
+        uppitch = NewPitch( pitchtitle = form.title.data, mypitch = form.name.data, category = form.category.data, author = form.author.data)
 
         db.session.add(uppitch)
         db.session.commit()
 
-        return redirect(url_for('main.index'))
+        return redirect(url_for('main.userpage'))
 
     return render_template('createpitch.html', pitch_form = form)
