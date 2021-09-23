@@ -6,19 +6,16 @@
 
 ## Description
 
-Its a Flask web application that enables users to view and search for news from any media group. It displays latest popular news and offers a user the ability to search news based on categories eg bitcoin, sports etc.
+Its a Flask web application that enables users to create categorized pitches, view pitches from other users and upvote and downvote on those pitches
 
-![screenshot2](app/static/images/SCR.png)
+## Creating a Pitch
+![screenshot2](app/static/images/pitch.png)
 
 ## News Sources
 
-![screenshot3](app/static/images/SCR2.png)
+![screenshot3](app/static/images/pitch2.png)
 
-## Results
 
-#### results for espn/ESPN
-
-![scr3](app/static/images/SCR3.png)
 ## Setup/Installation Requirements
 
 - Visual Studio Code
@@ -26,22 +23,18 @@ Its a Flask web application that enables users to view and search for news from 
 - Github
 - Heroku
 - Flask virtual Environment
-- NewsApi
+- postgresql
 
 ## Known Bugs
 
 None observed so far
 
-## Limitations
-There is a number of requests that you cannot go beyond while uding the NewsApi as it eventually leads to an error 429 and 503 and as such the link may not work for 24 hours
-
-![screenshot](app/static/images/heroku.png)
 
 
 
 ## Technologies Used
 
-This project has been written using html, css, python languages and flask frameworks
+This project has been written using html, css, python languages and flask frameworks and postgresql
 
 ## installations
 
@@ -55,6 +48,7 @@ Create a virtual environment and proceed to add the dependancies
 - pip install flask-script
 - python3 -m  pip install gunicorn
 - install Heroku cli
+- install postgresql
 
 
 ## Support and contact details
